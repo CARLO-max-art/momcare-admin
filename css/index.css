@@ -1,0 +1,373 @@
+/* --- General resets and layout --- */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  color: #333;
+}
+
+body {
+  display: flex;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f0f8ff, #fefefe);
+  background-attachment: fixed;
+}
+
+/* --- Sidebar --- */
+.sidebar {
+  width: 220px;
+  background: linear-gradient(to bottom, #0070C1, #00bcd4);
+  color: white;
+  padding: 30px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  position: fixed;
+  height: 100%;
+  top: 0;
+  left: 0;
+  overflow-y: auto;
+}
+
+.logo {
+  width: 150px;
+  height: auto;
+  margin-bottom: -5px;
+}
+
+.sidebar ul {
+  list-style: none;
+  width: 100%;
+  padding-top: 10px;
+}
+
+.sidebar ul li {
+  margin-bottom: 10px;
+}
+
+.sidebar ul li a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  padding: 12px 16px;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.sidebar ul li a.active {
+  background-color: white;
+  color: #1e1f57;
+  font-weight: 600;
+}
+
+.sidebar ul li a.active::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 10%;
+  bottom: 10%;
+  width: 5px;
+  background-color: #1e1f57;
+  border-radius: 4px;
+}
+
+.sidebar ul li a:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.sidebar ul li a .icon {
+  margin-right: 10px;
+  font-size: 1.2rem;
+}
+
+/* --- Main --- */
+.main {
+  margin-left: 220px;
+  padding: 30px 40px;
+  width: calc(100% - 220px);
+}
+
+/* --- Cards --- */
+.cards {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.card {
+  flex: 1;
+  background: white;
+  padding: 25px;
+  border-radius: 16px;
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+}
+
+.card h3 {
+  color: #666;
+  font-size: 1rem;
+  margin-bottom: 10px;
+}
+
+.card p {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #1e1f57;
+}
+
+/* --- Announcement section --- */
+.announcement-wrapper {
+  display: flex;
+  justify-content: center;
+  margin: 25px 0;
+  width: 100%;
+}
+
+.announcement-card {
+  background: #ffffff;
+  width: 400px;
+  padding: 25px 30px;
+  border-radius: 16px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+  border-left: 6px solid #374151;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.announcement-card h2 {
+  margin: 0 0 15px 0;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #374151;
+}
+
+#latestAnnouncement {
+  font-size: 1.1rem;
+  line-height: 1.5;
+  color: #374151;
+}
+
+@keyframes pulse {
+  0% { background: rgba(255, 255, 0, 0.3); }
+  100% { background: transparent; }
+}
+
+/* Analytics Section */
+.analytics-section {
+  background: white;
+  padding: 30px;
+  border-radius: 16px;
+  margin-top: 30px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.analytics-section h3 {
+  color: #1e1f57;
+  margin-bottom: 20px;
+  font-size: 1.3rem;
+}
+
+.analytics-cards {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin: 20px 0;
+}
+
+.analytics-card {
+  flex: 1;
+  min-width: 200px;
+  background: #f5fbff;
+  border-left: 5px solid #1e1f57;
+  padding: 20px;
+  border-radius: 12px;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.analytics-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(30, 31, 87, 0.2);
+}
+
+.analytics-card h4 {
+  color: #1e1f57;
+  margin-bottom: 10px;
+}
+
+.analytics-card p {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #1e1f57;
+}
+
+/* --- Purok Chart Section --- */
+.purok-chart-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 20px;
+}
+
+.purok-box {
+  background: #f5fbff;
+  border-left: 5px solid #1e1f57;
+  padding: 20px;
+  border-radius: 12px;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.purok-box:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+}
+
+.purok-box h4 {
+  color: #1e1f57;
+  margin-bottom: 15px;
+}
+
+.purok-box canvas {
+  width: 100%;
+  height: 180px;
+}
+
+/* Report Button */
+.report-btn {
+  background: linear-gradient(135deg, #1e1f57, #3740a3);
+  color: white;
+  border: none;
+  padding: 14px 28px;
+  border-radius: 50px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 6px 15px rgba(30, 31, 87, 0.3);
+}
+
+.report-btn:hover {
+  background: linear-gradient(135deg, #2a2b7a, #4a54c4);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(30, 31, 87, 0.4);
+}
+
+.report-btn:active {
+  transform: translateY(-1px);
+}
+
+.report-btn:disabled {
+  background: #6c757d;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* --- Month Filter Dropdown --- */
+.month-dropdown {
+  padding: 10px 15px;
+  border-radius: 8px;
+  border: 2px solid #1e1f57;
+  background-color: #f5fbff;
+  color: #1e1f57;
+  font-size: 1rem;
+  margin-bottom: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.month-dropdown:hover {
+  background-color: #e0f0ff;
+  border-color: #3740a3;
+}
+
+.month-dropdown:focus {
+  outline: none;
+  border-color: #0070C1;
+  box-shadow: 0 0 8px rgba(0, 112, 193, 0.3);
+}
+
+/* Clickable Cards */
+.clickable-card {
+  cursor: pointer;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.15s ease, box-shadow 0.2s ease;
+}
+
+.clickable-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+/* Ensure trend chart height is comfortable */
+#trendLineChart {
+  width: 100% !important;
+  height: 300px !important;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .purok-chart-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    width: 80px;
+    padding: 20px 10px;
+  }
+  
+  .sidebar .logo {
+    width: 50px;
+  }
+  
+  .sidebar ul li a span:not(.icon) {
+    display: none;
+  }
+  
+  .sidebar ul li a .icon {
+    margin-right: 0;
+    font-size: 1.4rem;
+  }
+  
+  .main {
+    margin-left: 80px;
+    width: calc(100% - 80px);
+    padding: 20px;
+  }
+  
+  .cards {
+    flex-direction: column;
+  }
+  
+  .purok-chart-container {
+    grid-template-columns: 1fr;
+  }
+  
+  .announcement-card {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .main {
+    padding: 15px;
+  }
+  
+  .analytics-cards {
+    flex-direction: column;
+  }
+  
+  .analytics-card {
+    min-width: 100%;
+  }
+}

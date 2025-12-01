@@ -1,0 +1,344 @@
+.status-confirmed {
+  background: #d4edda;
+  color: #155724;
+  padding: 6px 16px;
+  border-radius: 50px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.status-none {
+  background: #f8d7da;
+  color: #721c24;
+  padding: 6px 16px;
+  border-radius: 50px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.view-btn {
+  background: #1e1f57;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.view-btn:hover {
+  background: #15163f;
+}
+/* Appointment Button Styles */
+.appointment-button-container {
+  margin-left: 15px;
+}
+
+.btn-appointment {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);
+}
+
+.btn-appointment:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+  color: white;
+  text-decoration: none;
+}
+
+.btn-appointment i {
+  font-size: 1.1em;
+}
+
+/* Responsive adjustments for filters container */
+.filters-container {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .filters-container {
+    gap: 10px;
+  }
+  
+  .appointment-button-container {
+    margin-left: 0;
+    width: 100%;
+  }
+  
+  .btn-appointment {
+    justify-content: center;
+    width: 100%;
+    margin-top: 10px;
+  }
+}
+.schedule-btn {
+  background: #ffc107;
+  color: #212529;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 14px;
+  min-width: 120px;
+}
+
+.schedule-btn.pending:hover {
+  background: #e0a800;
+}
+
+.btn-accept-mini, .btn-decline-mini {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.btn-accept-mini { background: #28a745; color: white; }
+.btn-decline-mini { background: #dc3545; color: white; }
+
+.btn-accept-mini:hover { background: #218838; }
+.btn-decline-mini:hover { background: #c82333; }
+
+/* Back Button */
+.back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #dddeff;       /* same color as your view-btn */
+  color: white;
+  padding: 10px 18px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s ease;
+  margin-right: 15px;
+}
+
+.back-btn:hover {
+  background: #15163f;
+}
+
+.back-btn i {
+  font-size: 16px;
+}
+
+/* === ACCEPT & DECLINE BUTTONS DESIGN === */
+
+.action-buttons {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.card-actions {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 15px;
+  padding-top: 15px;
+  border-top: 1px solid #eee;
+}
+
+/* Base button styles */
+.btn-accept, .btn-decline {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  min-width: 100px;
+  justify-content: center;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Accept Button - Green Theme */
+.btn-accept {
+  background: linear-gradient(135deg, #28a745, #20c997);
+  color: white;
+  border: 1px solid #1e7e34;
+}
+
+.btn-accept:hover {
+  background: linear-gradient(135deg, #218838, #1ea085);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(40, 167, 69, 0.3);
+}
+
+.btn-accept:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(40, 167, 69, 0.3);
+}
+
+.btn-accept:disabled {
+  background: #6c757d;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+  opacity: 0.7;
+}
+
+/* Decline Button - Red Theme */
+.btn-decline {
+  background: linear-gradient(135deg, #dc3545, #e83e8c);
+  color: white;
+  border: 1px solid #c82333;
+}
+
+.btn-decline:hover {
+  background: linear-gradient(135deg, #c82333, #d91a7a);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(220, 53, 69, 0.3);
+}
+
+.btn-decline:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(220, 53, 69, 0.3);
+}
+
+.btn-decline:disabled {
+  background: #6c757d;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+  opacity: 0.7;
+}
+
+/* Button icons */
+.btn-accept i, .btn-decline i {
+  font-size: 12px;
+}
+
+/* Loading state */
+.btn-accept .fa-spinner, .btn-decline .fa-spinner {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Status badges */
+.status-badge {
+  padding: 8px 16px;
+  border-radius: 50px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.status-pending {
+  background: #fff3cd;
+  color: #856404;
+  border: 1px solid #ffeaa7;
+}
+
+.status-confirmed {
+  background: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+}
+
+.status-declined {
+  background: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+}
+
+/* Mobile responsive adjustments */
+@media (max-width: 768px) {
+  .action-buttons {
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .card-actions {
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .btn-accept, .btn-decline {
+    width: 100%;
+    min-width: auto;
+  }
+  
+  /* Table action buttons on mobile */
+  .user-table .action-buttons {
+    flex-direction: row;
+    justify-content: center;
+  }
+}
+
+/* Hover effects for cards */
+.patient-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+/* Animation for status changes */
+.status-display {
+  animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Success message styles */
+.status-message {
+  animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+  from { 
+    opacity: 0; 
+    transform: translateX(100px); 
+  }
+  to { 
+    opacity: 1; 
+    transform: translateX(0); 
+  }
+}
+
+@keyframes slideOut {
+  from { 
+    opacity: 1; 
+    transform: translateX(0); 
+  }
+  to { 
+    opacity: 0; 
+    transform: translateX(100px); 
+  }
+}
+

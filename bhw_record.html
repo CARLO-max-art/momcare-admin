@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Maternal Record Form</title>
+
+<link rel="stylesheet" href="css/maternal_record.css" />
+<link rel="stylesheet" href="css/bhw_record.css" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
+<body>
+
+<div class="admin-container">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="logo">
+            <img src="assest/logo2.png" alt="Logo" />
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html"><span class="icon">📊</span> Dashboard</a></li>
+                <li><a href="user.html"><span class="icon">👥</span> Users</a></li>
+                <li><a href="appointment.html"><span class="icon">📅</span> Appointments</a></li>
+                <li><a href="patients.html" class="active"><span class="icon">🏥</span> Patients</a></li>
+                <li><a href="announcement.html"><span class="icon">📢</span> Announcements</a></li>
+                <li><a href="sms.html"><span class="icon">📩</span> SMS Alerts</a></li>
+                <li><a href="logout.html"><span class="icon">🚪</span> Logout</a></li>
+            </ul>
+        </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <h1>Barangay Health Station Record</h1>
+
+        <div class="form-card">
+            <div class="form-actions">
+                <a id="backBtn" class="btn btn-secondary">←</a>
+                <button type="button" class="btn" onclick="exportPDF()">Export to PDF</button>
+                <button type="button" class="btn" onclick="exportExcel()">Export to Excel</button>
+                <button type="button" class="btn" onclick="printForm()">Print</button>
+            </div>
+
+            <form>
+                <fieldset>
+                    <legend>Patient Information</legend>
+                    <div class="row">
+                        <div class="col"><label>Date Of Registration</label><input type="date" name="dor"></div>
+                        <div class="col"><label>Family Serial Number</label><input type="text" name="fsn"></div>
+                        <div class="col"><label>PHIC Number</label><input type="text" name="phicNumber"></div>
+                    </div>
+                    <div class="row">
+                        <div class="col"><label>NHTS HH Number</label><input type="text" name="nhtsNumber"></div>
+                        <div class="col"><label>Full Name</label><input type="text" name="fullname"></div>
+                        <div class="col"><label>Birthdate</label><input type="date" name="birthdate"></div>
+                        <div class="col"><label>Address</label><input type="text" name="address"></div>
+                    </div>
+                    <div class="row">
+                        <div class="col"><label>Contact Number</label><input type="text" name="contact"></div>
+                        <div class="col">
+                            <label>Civil Status</label>
+                            <select name="civilStatus">
+                                <option value="">--Select--</option>
+                                <option value="Single">Single</option>
+                                <option value="Married">Married</option>
+                                <option value="Separated">Separated</option>
+                                <option value="Widowed">Widowed</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col"><label>Height</label><input type="text" name="height"></div>
+                        <div class="col"><label>BMI</label><input type="text" name="bmi"></div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <label>Previous FP Method Used</label>
+                            <select name="previousFP">
+                                <option value="">--Select--</option>
+                                <option value="Pills">Pills</option>
+                                <option value="DMPA">DMPA</option>
+                                <option value="Implant">Implant</option>
+                                <option value="IUD">IUD</option>
+                                <option value="Calendar Method">Calendar Method</option>
+                            </select>
+                        </div>
+                        <div class="col"><label>Husband's Name</label><input type="text" name="husbandName"></div>
+                        <div class="col"><label>Age</label><input type="number" name="age"></div>
+                        <div class="col">
+                            <label>Religion</label>
+                            <select name="religion">
+                                <option value="">--Select--</option>
+                                <option value="Catholic">Catholic</option>
+                                <option value="Muslim">Muslim</option>
+                                <option value="INC">INC</option>
+                                <option value="Protestant">Protestant</option>
+                                <option value="Others">Others</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <legend>Pregnancy Details</legend>
+                    <div class="row">
+                        <div class="col"><label>LMP</label><input type="text" name="lmp"></div>
+                        <div class="col"><label>EDC</label><input type="text" name="edc"></div>
+                        <div class="col"><label>GPAL</label><input type="text" name="gpal"></div>
+                    </div>
+
+                    <h3>Birth Plan</h3>
+                    <div class="row">
+                        <div class="col"><label>Mother and Child Book</label><input type="text" name="macb"></div>
+                        <div class="col">
+                            <label>Where to Deliver</label>
+                            <select name="wtd">
+                                <option value="">--Select--</option>
+                                <option value="Hospital">Hospital</option>
+                                <option value="RHU">RHU</option>
+                                <option value="Lying-in">Lying-in</option>
+                                <option value="Home">Home</option>
+                            </select>
+                        </div>
+                        <div class="col">
+                            <label>Partner During Delivery</label>
+                            <select name="pdd">
+                                <option value="">--Select--</option>
+                                <option value="Husband">Husband</option>
+                                <option value="Mother">Mother</option>
+                                <option value="Midwife">Midwife</option>
+                                <option value="Others">Others</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <label>Transportation</label>
+                            <select name="transportation">
+                                <option value="">--Select--</option>
+                                <option value="Tricycle">Tricycle</option>
+                                <option value="Motorcycle">Motorcycle</option>
+                                <option value="Jeep">Jeep</option>
+                                <option value="Ambulance">Ambulance</option>
+                            </select>
+                        </div>
+                       <div class="col">
+    <label>E-Signature</label>
+    <input type="file" name="eSignature" id="eSignature" accept="image/*" onchange="previewSignature(event)">
+    <div id="signaturePreview" class="signature-preview"></div>
+</div>
+
+                    </div>
+
+                    <h3>TD Immunization</h3>
+                    <div class="row">
+                        <div class="col"><label>TD1</label><input type="date" name="td1"></div>
+                        <div class="col"><label>TD2</label><input type="date" name="td2"></div>
+                        <div class="col"><label>TD3</label><input type="date" name="td3"></div>
+                        <div class="col"><label>TD4</label><input type="date" name="td4"></div>
+                        <div class="col"><label>TD5</label><input type="date" name="td5"></div>
+                        <div class="col"><label>TTL</label><input type="date" name="ttl"></div>
+                    </div>
+
+                    <h3>Laboratory Results</h3>
+                    <div class="row">
+                        <div class="col"><label>Hemoglobin 1st</label><input type="text" name="hb1"></div>
+                        <div class="col"><label>Hemoglobin 2nd</label><input type="text" name="hb2"></div>
+                    </div>
+                    <div class="row">
+                        <div class="col"><label>Blood Type</label>
+                            <select name="bloodType">
+                                <option value="">--Select--</option>
+                                <option value="A+">A+</option>
+                                <option value="A-">A-</option>
+                                <option value="B+">B+</option>
+                                <option value="B-">B-</option>
+                                <option value="AB+">AB+</option>
+                                <option value="AB-">AB-</option>
+                                <option value="O+">O+</option>
+                                <option value="O-">O-</option>
+                            </select>
+                        </div>
+                        <div class="col"><label>Urinalysis</label><input type="text" name="urinalysis"></div>
+                        <div class="col">
+                            <label>HBsAg</label>
+                            <select name="hbsag">
+                                <option value="">--Select--</option>
+                                <option value="Reactive">Reactive</option>
+                                <option value="Non-reactive">Non-reactive</option>
+                            </select>
+                        </div>
+                        <div class="col">
+                            <label>HIV/Syphilis</label>
+                            <select name="hiv">
+                                <option value="">--Select--</option>
+                                <option value="Reactive">Reactive</option>
+                                <option value="Non-reactive">Non-reactive</option>
+                            </select>
+                        </div>
+                        <div class="col"><label>FBS</label><input type="text" name="fbs"></div>
+                    </div>
+
+                    <h3>Prenatal Visits</h3>
+                    <div class="row">
+                        <div class="col"><label>Date of Visit</label><input type="date" name="visitDate"></div>
+                        <div class="col"><label>AOG</label><input type="text" name="aog"></div>
+                        <div class="col"><label>BP</label><input type="text" name="vitalsBP" readonly></div>
+                        <div class="col"><label>Wt</label><input type="text" name="vitalsWt"></div>
+                        <div class="col"><label>Temp</label><input type="text" name="vitalsTemp"></div>
+                        <div class="col"><label>FH</label><input type="text" name="vitalsFH"></div>
+                        <div class="col"><label>FHT</label><input type="text" name="vitalsFHT"></div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <label>Iron</label>
+                            <select name="iron">
+                                <option value="">--Select--</option>
+                                <option value="Given">Given</option>
+                                <option value="Not Given">Not Given</option>
+                            </select>
+                        </div>
+                        <div class="col">
+                            <label>Calcium</label>
+                            <select name="calcium">
+                                <option value="">--Select--</option>
+                                <option value="Given">Given</option>
+                                <option value="Not Given">Not Given</option>
+                            </select>
+                        </div>
+                        <div class="col"><label>Management/Remarks</label><textarea name="management" rows="3"></textarea></div>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+    </main>
+</div>
+
+<script type="module" src="js/bhw_record.js"></script>
+<script type="module" src="js/export.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+
+</body>
+</html>

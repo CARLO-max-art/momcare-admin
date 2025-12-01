@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Admin Sign Up - MomCare</title>
+  <link rel="stylesheet" href="css/sign.css" />
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+</head>
+<body>
+  <div class="container">
+    <div class="logo-section">
+      <img src="assest/logo2.png" alt="MomCare Logo" class="logo">
+      <h2>Admin Registration</h2>
+    </div>
+    
+    <form id="signupForm">
+      <div class="input-group">
+        <label for="signupEmail">Email</label>
+        <input type="email" id="signupEmail" placeholder="Enter your email" required />
+      </div>
+      
+      <div class="input-group">
+        <label for="signupPassword">Password</label>
+        <input type="password" id="signupPassword" placeholder="Create a password" required minlength="6" />
+        <div id="passwordStrength"></div>
+      </div>
+      
+      <div class="input-group">
+        <label for="signupConfirmPassword">Confirm Password</label>
+        <input type="password" id="signupConfirmPassword" placeholder="Confirm your password" required />
+      </div>
+
+      <!-- reCAPTCHA widget -->
+      <div class="g-recaptcha" data-sitekey="6LfSyFgrAAAAAHxZWY9l2ixMUt7xSjItywdrS0Iu"></div>
+
+      <button type="submit" class="submit-btn" id="signupBtn">
+        <span id="signupText">Create Account</span>
+        <span id="signupSpinner" class="loading" style="display:none;"></span>
+      </button>
+    </form>
+    
+    <p id="signupMessage" class="message"></p>
+    
+    <p class="signup-link">
+      Already have an account? <a href="login.html">Login here</a>
+    </p>
+  </div>
+
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+
+  <!-- Your JS logic -->
+  <script src="js/sign.js"></script>
+</body>
+</html>

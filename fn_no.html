@@ -1,0 +1,18 @@
+<!-- Pop-up form -->
+<div id="fnModal" style="display:block;">
+  <h3>Enter Patient FN No.</h3>
+  <input type="text" id="fnInput" placeholder="e.g., 123">
+  <button onclick="submitFN()">Submit</button>
+</div>
+
+<script>
+  function submitFN() {
+    const fnNo = document.getElementById("fnInput").value;
+    fetch(`/api/getBP?fnNo=${fnNo}`)
+      .then(response => response.json())
+      .then(data => {
+        // Display BP result (e.g., BPM: 120/80)
+        alert(`BP Result for FN ${fnNo}: ${data.bpm}`);
+      });
+  }
+</script>

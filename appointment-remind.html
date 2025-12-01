@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Appointment Reminders - MomCare Admin</title>
+  <link rel="stylesheet" href="css/index.css" />
+  <link rel="stylesheet" href="css/patients.css" />
+  <link rel="stylesheet" href="css/appointment-reminder.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+
+  <div class="sidebar">
+    <img src="assest/logo2.png" alt="MomCare Logo" class="logo" />
+    <ul>
+      <li><a href="index.html"><span class="icon">📊</span> Dashboard</a></li>
+      <li><a href="user.html"><span class="icon">👥</span> Users</a></li>
+      <li><a href="appointment.html"><span class="icon">📅</span> Appointments</a></li>
+      <li><a href="patients.html" class="active"><span class="icon">🏥</span> Patients</a></li>
+      <li><a href="announcement.html"><span class="icon">📢</span> Announcements</a></li>
+      <li><a href="sms.html"><span class="icon">📩</span> SMS Alerts</a></li>
+      <li><a href="logout.html" id="logoutLink"><span class="icon">🚪</span> Logout</a></li>
+    </ul>
+  </div>
+
+  <div class="main">
+    <header>
+
+        <a href="patients.html" class="back-btn">
+          <i class="fas fa-arrow-left"></i>
+        </a>
+      
+      <h2>Appointment Reminders</h2>
+      
+      <div class="filters-container">
+        <div class="dropdown">
+          <button class="btn btn-secondary dropdown-toggle" type="button" id="purokDropdown">
+            <i class="fas fa-map-marker-alt"></i> 
+            <span id="selectedPurokText">All Purok</span>
+            <i class="fas fa-chevron-down"></i>
+          </button>
+          <div class="dropdown-menu" aria-labelledby="purokDropdown">
+            <a class="dropdown-item" href="#" data-purok="all">All Purok</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#" data-purok="PRK 1A">Purok 1A</a>
+            <a class="dropdown-item" href="#" data-purok="PRK 1B">Purok 1B</a>
+            <a class="dropdown-item" href="#" data-purok="PRK 1C">Purok 1C</a>
+            <a class="dropdown-item" href="#" data-purok="PRK 2">Purok 2</a>
+            <a class="dropdown-item" href="#" data-purok="PRK 3">Purok 3</a>
+            <a class="dropdown-item" href="#" data-purok="PRK 4">Purok 4</a>
+            <a class="dropdown-item" href="#" data-purok="PRK 5">Purok 5</a>
+          </div>
+        </div>
+
+        <div class="search-container">
+          <input type="text" id="searchInput" placeholder="Search by name...">
+          <i class="fas fa-search"></i>
+        </div>
+      </div>
+    </header>
+
+    <section>
+      <!-- Desktop Table -->
+      <div class="table-container desktop-only">
+        <table class="user-table">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Age</th>
+              <th>Purok</th>
+              <th>Contact</th>
+               <th>Date & Time</th>
+              <th>Schedule</th>
+            </tr>
+          </thead>
+          <tbody id="appointmentTableBody"></tbody>
+        </table>
+      </div>
+
+      <!-- Mobile Cards -->
+      <div class="mobile-cards mobile-only" id="mobileAppointmentList"></div>
+    </section>
+  </div>
+
+  <script type="module" src="js/appointment-reminder.js"></script>
+
+  <!-- Auto Active Sidebar -->
+  <script>
+  document.querySelectorAll('.sidebar a').forEach(link => {
+    if (link.href === location.href) {
+      link.classList.add('active');
+    }
+  });
+</script>
+</body>
+</html>

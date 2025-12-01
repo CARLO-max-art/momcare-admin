@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Maternal Record Form</title>
+  <link rel="stylesheet" href="css/maternal_record.css" />
+</head>
+<body>
+
+  <div class="admin-container">
+    <aside class="sidebar">
+      <div class="logo">
+        <img src="assest/logo2.png" alt="Logo" />
+      </div>
+      <nav>
+        <ul>
+          <li><a href="index.html">📊 Dashboard</a></li>
+          <li><a href="user.html">👥 Users</a></li>
+          <li><a href="appointment.html">📅 Appointments</a></li>
+          <li><a href="patients.html" class="active">🏥 Patients</a></li>
+          <li><a href="announcement.html">📢 Announcements</a></li>
+          <li><a href="sms.html">📩 SMS Alerts</a></li>
+          <li><a href="logout.html">🚪 Logout</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <main class="main-content">
+      <h1>Maternal Record Form</h1>
+
+      <div class="form-card">
+        <div class="form-actions">
+         <a id="backBtn" class="btn btn-secondary">←</a>
+        </div>
+
+        <form id="maternal-form" autocomplete="off">
+          <section class="section-grid">
+            <div class="field"><label>FN No.</label><input name="fn_no" type="text"></div>
+            <div class="field"><label>Last Name</label><input name="last_name" type="text"></div>
+            <div class="field"><label>First Name</label><input name="first_name" type="text"></div>
+            <div class="field"><label>Middle Name</label><input name="middle_name" type="text"></div>
+            <div class="field"><label>Birthday</label><input name="birthday" type="date"></div>
+            <div class="field"><label>Age</label><input name="age" type="number" min="0"></div>
+            <div class="field"><label>PRK</label><input name="prk" type="text"></div>
+
+            <div class="field">
+              <label>Education</label>
+              <select name="education" id="education">
+                <option value="">--Select--</option>
+                <option value="None">None</option>
+                <option value="Elementary">Elementary</option>
+                <option value="High School">High School</option>
+                <option value="Vocational">Vocational</option>
+                <option value="College">College</option>
+                <option value="Graduate">Graduate</option>
+              </select>
+            </div>
+
+            <div class="field hidden" id="education-course-wrap">
+              <label>Course / Track</label>
+              <input name="education_course" type="text" placeholder="e.g. Nursing / STEM">
+            </div>
+
+            <div class="field">
+              <label>Occupation</label>
+              <select name="occupation" id="occupation">
+                <option value="">--Select--</option>
+                <option value="Unemployed">Unemployed</option>
+                <option value="Housewife">Housewife</option>
+                <option value="Farmer">Farmer</option>
+                <option value="OFW">OFW</option>
+                <option value="Private Employee">Private Employee</option>
+                <option value="Government Employee">Government Employee</option>
+                <option value="Student">Student</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+
+            <div class="field hidden" id="occupation-employer-wrap">
+              <label>Employer / Workplace</label>
+              <input name="occupation_employer" type="text" placeholder="Company / Workplace">
+            </div>
+
+            <div class="field"><label>Mobile No.</label><input name="mobile_no" type="text"></div>
+            <div class="field"><label>Place of Birth</label><input name="place_of_birth" type="text"></div>
+            <div class="field"><label>MCCT</label><input name="mcct" type="text"></div>
+            <div class="field"><label>G</label><input name="g" type="text"></div>
+            <div class="field"><label>P</label><input name="p" type="text"></div>
+            <div class="field"><label>LMP</label><input name="lmp" type="date"></div>
+            <div class="field"><label>EDD</label><input name="edd" type="date"></div>
+
+            <div class="field">
+              <label>Tribe (Indigenous?)</label>
+              <select name="tribe_flag" id="tribe_flag">
+                <option value="No">No</option>
+                <option value="Yes">Yes</option>
+              </select>
+            </div>
+
+            <div class="field hidden" id="tribe-select-wrap">
+              <label>Select Tribe</label>
+              <select name="tribe">
+                <option value="">--Select Tribe--</option>
+                <option value="Manobo">Manobo</option>
+                <option value="Bagobo">Bagobo</option>
+                <option value="T'boli">T'boli</option>
+                <option value="Others">Others</option>
+              </select>
+            </div>
+
+            <div class="field"><label>Height (cm)</label><input name="height_cm" type="number" step="0.1"></div>
+
+            <div class="field">
+              <label>Civil Status</label>
+              <select name="civil_status" id="civil_status">
+                <option value="">--Select--</option>
+                <option value="Single">Single</option>
+                <option value="Married">Married</option>
+                <option value="Live-in">Live-in</option>
+                <option value="Widowed">Widowed</option>
+              </select>
+            </div>
+
+            <div class="field hidden" id="spouse-wrap">
+              <label>Spouse Name</label>
+              <input name="spouse_name" type="text">
+            </div>
+
+            <div class="field hidden" id="spouse-occupation-wrap">
+              <label>Spouse Occupation</label>
+              <input name="spouse_occupation" type="text">
+            </div>
+
+            <div class="field"><label>TDL</label><input name="tdl" type="text"></div>
+
+            <div class="field">
+              <label>Alcohol Intake</label>
+              <select name="alcohol_intake" id="alcohol_intake">
+                <option value="No">No</option>
+                <option value="Yes">Yes</option>
+              </select>
+            </div>
+
+            <div class="field hidden" id="alcohol-intensity-wrap">
+              <label>Alcohol Frequency</label>
+              <select name="alcohol_intensity">
+                <option value="">--Select--</option>
+                <option value="Occasional">Occasional</option>
+                <option value="Moderate">Moderate</option>
+                <option value="Heavy">Heavy</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label>Smoker</label>
+              <select name="smoker" id="smoker">
+                <option value="No">No</option>
+                <option value="Yes">Yes</option>
+              </select>
+            </div>
+
+            <div class="field hidden" id="smoker-details-wrap">
+              <label>Smoker details</label>
+              <input name="smoker_details" placeholder="e.g. 5 sticks/day for 3 years">
+            </div>
+
+            <div class="field">
+              <label>PHIC</label>
+              <select name="phic">
+                <option value="">--Select--</option>
+                <option value="No">No</option>
+                <option value="Yes">Yes</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label>4P's</label>
+              <select name="fourps">
+                <option value="">--Select--</option>
+                <option value="No">No</option>
+                <option value="Yes">Yes</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label>M&C Book</label>
+              <select name="mc_book">
+                <option value="">--Select--</option>
+                <option value="No">No</option>
+                <option value="Yes">Yes</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label>FP Preferred to use</label>
+              <select name="fp_method" id="fp_method">
+                <option value="">--Select--</option>
+                <option value="None">None</option>
+                <option value="Pills">Pills</option>
+                <option value="Injectable">Injectable</option>
+                <option value="IUD">IUD</option>
+                <option value="Condom">Condom</option>
+                <option value="Natural">Natural</option>
+              </select>
+            </div>
+
+            <div class="field hidden" id="fp-details-wrap">
+              <label id="fp-details-label">FP details</label>
+              <input name="fp_details" placeholder="e.g. brand / months / insertion date">
+            </div>
+          </section>
+
+          <hr>
+
+          <h3>Children</h3>
+          <table class="children-table">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Birthday</th>
+                <th>Place of Delivery</th>
+                <th>Birth Attendant</th>
+                <th>Term</th>
+                <th>Pre-Term</th>
+                <th>Post Term</th>
+                <th>Remarks</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody id="children-table-body">
+              <!-- dynamic rows -->
+            </tbody>
+          </table>
+          <div class="row-actions">
+            <button id="addChildBtn" type="button" class="btn">Add Child</button>
+          </div>
+
+          <hr>
+
+          <h3>Complaints</h3>
+         <div class="chips">
+            <input type="checkbox" id="c1" name="complaints[]" value="HPN">
+            <label for="c1">HPN</label>
+
+            <input type="checkbox" id="c2" name="complaints[]" value="Dizziness">
+            <label for="c2">Dizziness</label>
+
+            <input type="checkbox" id="c3" name="complaints[]" value="Nausea & Vomiting">
+            <label for="c3">Nausea & Vomiting</label>
+
+            <input type="checkbox" id="c4" name="complaints[]" value="Edema">
+            <label for="c4">Edema</label>
+
+            <input type="checkbox" id="c5" name="complaints[]" value="Drug Allergy">
+            <label for="c5">Drug Allergy</label>
+
+            <input type="checkbox" id="c6" name="complaints[]" value="Severe Headache">
+            <label for="c6">Severe Headache</label>
+
+            <input type="checkbox" id="c7" name="complaints[]" value="Severe Chest Pain">
+            <label for="c7">Severe Chest Pain</label>
+
+            <input type="checkbox" id="c8" name="complaints[]" value="Pallor">
+            <label for="c8">Pallor</label>
+
+            <input type="checkbox" id="c9" name="complaints[]" value="Vaginal Discharge">
+            <label for="c9">Vaginal Discharge</label>
+
+            <input type="checkbox" id="c10" name="complaints[]" value="Bleeding/Spotting">
+            <label for="c10">Bleeding/Spotting</label>
+
+            <input type="checkbox" id="c11" name="complaints[]" value="TB History">
+            <label for="c11">TB History</label>
+
+            <input type="checkbox" id="c12" name="complaints[]" value="GOI">
+            <label for="c12">GOI</label>
+         </div>
+          <hr>
+          <h3>Laboratory Results</h3>
+          <div class="lab-grid">
+            <div class="field"><label>Hgb Count</label><input name="lab_results_hgb_count" type="text"></div>
+            <div class="field"><label>U/A</label><input name="lab_results_ua" type="text"></div>
+            <div class="field"><label>RBC</label><input name="lab_results_rbc" type="text"></div>
+            <div class="field"><label>Albumin</label><input name="lab_results_albumin" type="text"></div>
+            <div class="field"><label>HbsAg</label><input name="lab_results_hbsag" type="text"></div>
+            <div class="field"><label>FBS</label><input name="lab_results_fbs" type="text"></div>
+            <div class="field"><label>RBS</label><input name="lab_results_rbs" type="text"></div>
+            <div class="field"><label>BT</label><input name="lab_results_bt" type="text"></div>
+            <div class="field"><label>HIV Test</label><input name="lab_results_hiv" type="text"></div>
+            <div class="field"><label>VDRL</label><input name="lab_results_vdrl" type="text"></div>
+          </div>
+
+          <hr>
+
+          <h3>Vital Signs</h3>
+          <div class="vitals-grid">
+            <div class="field"><label>Date</label><input name="vitals_date" type="date"></div>
+            <div class="field"><label>AOG</label><input name="vitals_aog" type="text"></div>
+            <div class="field"><label>Weight (kg)</label><input name="vitals_weight" type="text"></div>
+            <div class="field"><label>Status</label><input name="vitals_status" type="text" readonly></div>
+            <div class="field"><label>Blood Pressure</label><input id="bp-value" name="vitals_bp" type="text" readonly></div>
+            <div class="field"><label>HR</label><input name="vitals_hr" type="text"></div>
+            <div class="field"><label>Temp (°C)</label><input name="vitals_temp" type="text"></div>
+            <div class="field"><label>O2 Sat</label><input name="vitals_o2sat" type="text"></div>
+            <div class="field"><label>FHR</label><input name="vitals_fhr" type="text"></div>
+            <div class="field"><label>FH</label><input name="vitals_fh" type="text"></div>
+          </div>
+
+          <div class="field">
+            <label>Remarks</label>
+            <textarea name="remarks" rows="3"></textarea>
+          </div>
+
+          <div class="form-footer">
+            <button id="submitBtn" type="submit" class="btn primary">Submit</button>
+          </div>
+        </form>
+      </div>
+    </main>
+  </div>
+
+  <script type="module" src="js/maternal_record.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  
+</body>
+</html>

@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MomCare Admin</title>
+  <link rel="stylesheet" href="css/index.css" />
+  <link rel="stylesheet" href="css/report.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
+
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <img src="assest/logo2.png" alt="MomCare Logo" class="logo" />
+    <ul>
+      <li><a href="#" class="active"><span class="icon">📊</span> Dashboard</a></li>
+      <li><a href="user.html"><span class="icon">👥</span> Users</a></li>
+      <li><a href="appointment.html"><span class="icon">📅</span> Appointments</a></li>
+      <li><a href="patients.html"><span class="icon">🏥</span> Patients</a></li>
+      <li><a href="announcement.html"><span class="icon">📢</span> Announcements</a></li>
+      <li><a href="sms.html"><span class="icon">📩</span> SMS Alerts</a></li>
+      <li><a href="#" id="logoutBtn"><span class="icon">🚪</span> Logout</a></li>
+    </ul>
+  </div>
+
+  <!-- Main Content -->
+  <div class="main">
+    <header>
+      <h2>Dashboard</h2>
+    </header>
+
+    <!-- Cards -->
+    <section class="cards">
+      <a href="user.html" class="card clickable-card">
+        <h3>Total Users</h3>
+        <p id="totalUsers">0</p>
+      </a>
+
+      <a href="appointment-remind.html" class="card clickable-card">
+        <h3>Total Appointments</h3>
+        <p id="totalApptCount">0</p>
+      </a>
+
+      <a href="appointment.html" class="card clickable-card">
+        <h3>Today's Appointments</h3>
+        <p id="todaysAppointments">0</p>
+      </a>
+
+      <a href="appointment-remind.html" class="card clickable-card">
+        <h3>Pending Requests</h3>
+        <p id="pendingRequests">0</p>
+      </a>
+    </section>
+
+    <!-- Announcements -->
+    <section class="announcement-wrapper">
+      <a href="announcement.html" class="card clickable-card announcement-card">
+        <h2>Latest Announcement</h2>
+        <p id="latestAnnouncement">Loading...</p>
+      </a>
+    </section>
+
+    <!-- Data Analytics -->
+    <section class="analytics-section">
+      <h3>Data Analytics (High Risk Per Purok)</h3>
+
+      <label for="monthFilter"><strong>Filter by Month:</strong></label>
+      <select id="monthFilter" class="month-dropdown">
+        <option value="all">All Months</option>
+        <option value="01">January</option>
+        <option value="02">February</option>
+        <option value="03">March</option>
+        <option value="04">April</option>
+        <option value="05">May</option>
+        <option value="06">June</option>
+        <option value="07">July</option>
+        <option value="08">August</option>
+        <option value="09">September</option>
+        <option value="10">October</option>
+        <option value="11">November</option>
+        <option value="12">December</option>
+      </select>
+
+      <div class="analytics-cards" id="purokAnalytics"></div>
+
+      <h3 style="margin-top: 30px;">Purok Risk Visualization</h3>
+
+      <div class="purok-chart-container">
+        <div class="purok-box">
+          <h4>Purok 1A</h4>
+          <canvas id="chartPurok1A"></canvas>
+        </div>
+
+        <div class="purok-box">
+          <h4>Purok 1B</h4>
+          <canvas id="chartPurok1B"></canvas>
+        </div>
+
+        <div class="purok-box">
+          <h4>Purok 1C</h4>
+          <canvas id="chartPurok1C"></canvas>
+        </div>
+
+        <div class="purok-box">
+          <h4>Purok 2</h4>
+          <canvas id="chartPurok2"></canvas>
+        </div>
+
+        <div class="purok-box">
+          <h4>Purok 3</h4>
+          <canvas id="chartPurok3"></canvas>
+        </div>
+
+        <div class="purok-box">
+          <h4>Purok 4</h4>
+          <canvas id="chartPurok4"></canvas>
+        </div>
+
+        <div class="purok-box">
+          <h4>Purok 5</h4>
+          <canvas id="chartPurok5"></canvas>
+        </div>
+
+        <!-- Trend chart spans full width -->
+        <div class="purok-box" style="grid-column: 1 / -1;">
+          <h4>Trend Line (Realtime Risk Monitoring)</h4>
+          <canvas id="trendLineChart"></canvas>
+        </div>
+      </div>
+
+      <div style="margin-top: 20px;">
+        <button class="report-btn" id="generateReportBtn">Generate Report</button>
+      </div>
+    </section>
+
+    <div style="height: 200px;"></div>
+  </div>
+
+  <!-- Sidebar Active Handler -->
+  <script>
+    const sidebarLinks = document.querySelectorAll('.sidebar ul li a');
+    sidebarLinks.forEach(link => {
+      link.addEventListener('click', function () {
+        sidebarLinks.forEach(l => l.classList.remove('active'));
+        this.classList.add('active');
+      });
+    });
+  </script>
+
+  <!-- AUTHENTICATION CHECK -->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+    import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
+    import { getDatabase } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyAoPqlCsSGoZBytJtsXe8J2srrQjaHQvIE",
+      authDomain: "momcareapp-b90b4.firebaseapp.com",
+      databaseURL: "https://momcareapp-b90b4-default-rtdb.asia-southeast1.firebasedatabase.app",
+      projectId: "momcareapp-b90b4",
+      storageBucket: "momcareapp-b90b4.appspot.com",
+      messagingSenderId: "1020126784186",
+      appId: "1:1020126784186:web:7ce9239ec25770db0ef083"
+    };
+
+    console.log("🔄 Initializing Firebase in index.html...");
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+    const db = getDatabase(app);
+
+    // Share the Firebase database with other scripts
+    window.firebaseDb = db;
+    console.log("✅ Firebase database shared with index.js");
+
+    // Authentication check
+    onAuthStateChanged(auth, (user) => {
+      if (!user) {
+        window.location.href = "login.html";
+      }
+    });
+
+    // Logout functionality
+    document.getElementById('logoutBtn').addEventListener('click', async () => {
+      try {
+        await signOut(auth);
+        window.location.href = "login.html";
+      } catch (error) {
+        console.error('Logout error:', error);
+      }
+    });
+  </script>
+
+  <script type="module" src="js/index.js"></script>
+  <script type="module" src="js/report.js"></script>
+
+</body>
+</html>

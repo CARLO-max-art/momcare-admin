@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Users - MomCare Admin</title>
+  <link rel="stylesheet" href="css/user.css" />
+  <link rel="stylesheet" href="css/index.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+  <div class="sidebar">
+    <img src="assest/logo2.png" alt="MomCare Logo" class="logo" />
+    <ul>
+      <li><a href="index.html"><span class="icon">📊</span> Dashboard</a></li>
+      <li><a href="user.html" class="active"><span class="icon">👥</span> Users</a></li>
+      <li><a href="appointment.html"><span class="icon">📅</span> Appointments</a></li>
+      <li><a href="patients.html"><span class="icon">🏥</span> Patients</a></li>
+      <li><a href="announcement.html"><span class="icon">📢</span> Announcements</a></li>
+      <li><a href="sms.html"><span class="icon">📩</span> SMS Alerts</a></li>
+      <li><a href="#" id="logoutLink"><span class="icon">🚪</span> Logout</a></li>
+    </ul>
+  </div>
+  
+  <div class="main">
+    <header><h2>Users</h2></header>
+
+    <!-- Filter Section: Dropdown + Search -->
+    <div class="filter-container centered-filter">
+      <div class="dropdown">
+        <button id="purokDropdown" class="dropdown-toggle">Select Purok</button>
+        <div id="purokDropdownMenu" class="dropdown-menu"></div>
+      </div>
+
+      <div class="search-container">
+        <input type="text" id="searchInput" placeholder="Search Name..." />
+      </div>
+    </div>
+    <br>
+
+    <section>
+      <table class="user-table">
+        <thead>
+          <tr>
+            <th>First Name</th>
+            <th>Middle Name</th>
+            <th>Last Name</th>
+            <th>Purok</th>
+            <th>Status</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody id="userTableBody">
+          <!-- Rows dynamically inserted -->
+        </tbody>
+      </table>
+    </section>
+  </div>
+
+  <!-- User Info Modal -->
+  <div id="userModal" class="modal hidden">
+    <div class="modal-content">
+      <span id="modalClose" class="modal-close">&times;</span>
+      <h3>User Information</h3>
+      <div id="modalUserInfo"></div>
+    </div>
+  </div>
+
+  <!-- ✅ Floating Add User Button -->
+  <button id="addUserBtn" class="floating-btn">+</button>
+
+  <!-- Remove the entire script tag with Firebase initialization -->
+  <script type="module" src="js/user.js"></script>
+</body>
+</html>

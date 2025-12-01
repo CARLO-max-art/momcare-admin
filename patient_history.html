@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Patient History</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link rel="stylesheet" href="css/patient_history.css" />
+</head>
+
+<body>
+
+  <div class="container">
+
+    <div class="header">
+      <a class="back" href="patients.html">←</a>
+      <h1 class="title">Patient History</h1>
+      <span>Live</span>
+    </div>
+
+    <!-- Patient Summary -->
+    <div class="card" id="patientSummary">
+      <div class="grid">
+        <div class="col-8">
+          <div class="row-title" id="patientName"></div>
+          <div class="muted" id="patientMeta"></div>
+        </div>
+        <div class="col-4">
+          <div id="pillContainer"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Record Buttons -->
+    <div class="card">
+      <h3 class="section-title">View Other Records</h3>
+      <div class="record-buttons">
+        <button class="record-btn" id="btnMaternal"><i class="fas fa-baby"></i> Maternal Record</button>
+        <button class="record-btn" id="btnBhw"><i class="fas fa-user-nurse"></i> BHW Record</button>
+      </div>
+    </div>
+
+    <!-- Two Column Past Record Section -->
+    <div class="card">
+      <h3 class="section-title">Past Patient Records</h3>
+
+      <div class="two-columns">
+        <div class="column">
+          <h4>Maternal Records</h4>
+          <div id="maternalRecordsContainer" class="past-records"></div>
+        </div>
+
+        <div class="column">
+          <h4>BHW Records</h4>
+          <div id="bhwRecordsContainer" class="past-records"></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Modal -->
+  <div id="pastRecordsModal" class="modal">
+    <div class="modal-content">
+      <span id="closeModal" class="close">&times;</span>
+      <h2 id="modalTitle">Record Details</h2>
+      <div id="modalRecordsContainer"></div>
+    </div>
+  </div>
+
+      <!-- Delete Confirmation Modal -->
+<div id="deleteModal" class="modal">
+  <div class="modal-content">
+    <span id="closeDeleteModal" class="close">&times;</span>
+    <h2>Confirm Delete</h2>
+    <p>Are you sure you want to delete this record? This action cannot be undone.</p>
+    <div class="modal-actions">
+      <button id="confirmDelete" class="btn-danger">Delete</button>
+      <button id="cancelDelete" class="btn-secondary">Cancel</button>
+    </div>
+  </div>
+</div>
+
+<!-- Edit Record Modal -->
+<div id="editModal" class="modal">
+  <div class="modal-content" style="max-width: 800px;">
+    <span id="closeEditModal" class="close">&times;</span>
+    <h2 id="editModalTitle">Edit Record</h2>
+    <div id="editFormContainer"></div>
+  </div>
+</div>
+
+
+
+  <script type="module" src="js/patient_history.js"></script>
+</body>
+</html>

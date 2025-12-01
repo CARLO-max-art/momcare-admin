@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SMS Alerts</title>
+  <link rel="stylesheet" href="css/index.css" />
+  <link rel="stylesheet" href="css/sms.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+</head>
+<body>
+
+  <!-- SIDEBAR -->
+  <div class="sidebar">
+    <img src="assest/logo2.png" alt="MomCare Logo" class="logo" />
+    <ul>
+      <li><a href="index.html"><span class="icon">📊</span> Dashboard</a></li>
+      <li><a href="user.html"><span class="icon">👥</span> Users</a></li>
+      <li><a href="appointment.html"><span class="icon">📅</span> Appointments</a></li>
+      <li><a href="patients.html"><span class="icon">🏥</span> Patients</a></li>
+      <li><a href="announcement.html"><span class="icon">📢</span> Announcements</a></li>
+      <li><a href="sms.html" class="active"><span class="icon">📩</span> SMS Alerts</a></li>
+      <li><a href="logout.html"><span class="icon">🚪</span> Logout</a></li>
+    </ul>
+  </div>
+
+  <!-- MAIN CONTENT -->
+  <div class="main-content">
+    <header><h2>SMS Alerts</h2></header>
+
+    <div class="filter-section">
+      <label for="purokFilter">Filter Purok:</label>
+      <select id="purokFilter">
+        <option value="all">All</option>
+        <option value="PRK 1A">Purok 1A</option>
+        <option value="PRK 1B">Purok 1B</option>
+        <option value="PRK 1C">Purok 1C</option>
+        <option value="PRK 2">Purok 2</option>
+        <option value="PRK 3">Purok 3</option>
+        <option value="PRK 4">Purok 4</option>
+        <option value="PRK 5">Purok 5</option>
+      </select>
+    </div>
+
+    <div class="appointments-table">
+      <h3>Pregnant Women</h3>
+      <table id="patientTable">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Purok</th>
+            <th>Contact</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody id="patientBody">
+          <!-- Populated by sms.js -->
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- GROUP SMS MODAL -->
+  <div id="smsModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h3>Send SMS to <span id="recipientCount"></span></h3>
+      <textarea id="messageInput" placeholder="Type your message here..." rows="5"></textarea>
+      <button id="confirmSendBtn" class="btn-confirm">
+        <i class="fas fa-check"></i> Confirm Send
+      </button>
+    </div>
+  </div>
+
+  <!-- PATIENT DETAILS MODAL -->
+  <div id="patientModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h3>Patient Details</h3>
+      <div id="patientDetails"></div>
+      <button id="sendSmsBtn" class="sms-btn">Send SMS Reminder</button>
+      <span id="smsStatus"></span>
+    </div>
+  </div>
+
+  <!-- SINGLE SMS MODAL (NEW) -->
+  <div id="singleSmsModal" class="modal">
+    <div class="modal-content">
+      <span class="close single-close">&times;</span>
+      <h3>Send SMS <span id="singlePatientName"></span></h3>
+      <textarea id="singleMessageInput" placeholder="Type your message..." rows="5"></textarea>
+      <button id="singleSendBtn" class="btn-confirm">
+        <i class="fas fa-check"></i> Confirm Send
+      </button>
+      <span id="singleSmsStatus"></span>
+    </div>
+  </div>
+
+  
+
+  <script type="module" src="js/sms.js"></script>
+</body>
+</html>

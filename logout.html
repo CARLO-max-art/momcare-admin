@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/logout.css" />
+    <title>Logout | MomCare Admin</title>
+</head>
+<body>
+    <div class="logout-container">
+        <div class="logout-card">
+            <div class="logo-section">
+                <img src="assest/logo2.png" alt="MomCare Logo" class="logo">
+                <h1>MomCare Admin</h1>
+            </div>
+            
+            <div class="logout-content">
+                <div class="icon-wrapper">
+                    <div class="logout-icon">🚪</div>
+                </div>
+                <h2>Ready to Leave?</h2>
+                <p>Are you sure you want to log out of your account?</p>
+                
+                <div class="user-info">
+                    <div class="user-avatar">👤</div>
+                    <div class="user-details">
+                        <span class="user-name">Admin User</span>
+                        <span class="user-role">Administrator</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="logout-actions">
+                <button class="btn-cancel" id="cancelBtn">Cancel</button>
+                <button class="btn-logout" id="logoutBtn">
+                    <span class="btn-text">Logout</span>
+                    <span class="btn-icon">→</span>
+                </button>
+            </div>
+
+            <div class="logout-footer">
+                <p>You can always log back in anytime</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- SweetAlert for enhanced dialogs -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script type="module" src="js/logout.js"></script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Appointments Calendar | MomCare Admin</title>
+  <link rel="stylesheet" href="css/appointment.css" />
+  <link href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/main.min.css" rel="stylesheet" />
+</head>
+<body>
+
+  <div class="sidebar">
+    <img src="assest/logo2.png" alt="MomCare Logo" class="logo" />
+    <ul>
+      <li><a href="index.html"><span class="icon">📊</span> Dashboard</a></li>
+      <li><a href="user.html"><span class="icon">👥</span> Users</a></li>
+      <li><a href="appointment.html" class="active"><span class="icon">📅</span> Appointments</a></li>
+      <li><a href="patients.html"><span class="icon">🏥</span> Patients</a></li>
+      <li><a href="announcement.html"><span class="icon">📢</span> Announcements</a></li>
+      <li><a href="sms.html"><span class="icon">📩</span> SMS Alerts</a></li>
+      <li><a href="logout.html" id="logoutLink"><span class="icon">🚪</span> Logout</a></li>
+    </ul>
+  </div>
+
+  <div class="main-content">
+    <header><h2>Appointment Calendar</h2></header>
+    <div id="calendar"></div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.js"></script>
+  <script type="module" src="js/appointment.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/main.min.js"></script>
+
+
+
+
+</body>
+</html>

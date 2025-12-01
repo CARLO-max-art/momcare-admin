@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MomCare - Admin Login</title>
+  <link rel="stylesheet" href="css/login.css" />
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+</head>
+<body>
+  <div class="container">
+    <div class="logo-section">
+      <img src="assest/logo2.png" alt="MomCare Logo" class="logo">
+      <h2>Admin Login</h2>
+    </div>
+    
+    <form id="loginForm">
+      <div class="input-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" placeholder="Enter your email" required />
+      </div>
+      
+      <div class="input-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" placeholder="Enter your password" required />
+      </div>
+
+      <!-- Google reCAPTCHA widget -->
+      <div class="g-recaptcha" data-sitekey="6LfSyFgrAAAAAHxZWY9l2ixMUt7xSjItywdrS0Iu"></div>
+
+      <button type="submit" class="submit-btn" id="loginButton">
+        <span id="loginText">Login</span>
+        <span id="loginSpinner" class="loading" style="display: none;"></span>
+      </button>
+    </form>
+
+    <p id="loginMessage" class="message"></p>
+    
+    <p class="signup-link">
+      Don't have an account? <a href="sign.html">Sign up here</a>
+    </p>
+  </div>
+
+  <!-- CHANGED: Use modular Firebase -->
+  <script type="module" src="js/login.js"></script>
+</body>
+</html>

@@ -1,0 +1,224 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.container {
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  max-width: 380px;
+  margin: 20px;
+}
+
+.logo-section {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.logo {
+  width: 70px;
+  height: 70px;
+  margin-bottom: 10px;
+  border-radius: 50%;
+}
+
+h2 {
+  color: #333;
+  margin-bottom: 20px;
+  font-weight: 600;
+  text-align: center;
+  font-size: 22px;
+}
+
+.input-group {
+  margin-bottom: 15px;
+  position: relative;
+}
+
+.input-group label {
+  display: block;
+  margin-bottom: 6px;
+  color: #333;
+  font-weight: 500;
+  font-size: 13px;
+}
+
+input {
+  width: 100%;
+  padding: 10px 12px;
+  border: 2px solid #e1e5e9;
+  border-radius: 6px;
+  font-size: 14px;
+  transition: border-color 0.3s;
+  background-color: #fafafa;
+}
+
+input:focus {
+  outline: none;
+  border-color: #667eea;
+  background-color: white;
+}
+
+.password-toggle {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: #667eea;
+  cursor: pointer;
+  padding: 4px 6px;
+  font-size: 11px;
+}
+
+.g-recaptcha {
+  margin: 15px 0;
+  display: flex;
+  justify-content: center;
+  transform: scale(0.85);
+  transform-origin: center;
+}
+
+.submit-btn {
+  width: 100%;
+  padding: 12px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 10px;
+}
+
+.submit-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+}
+
+.submit-btn:active {
+  transform: translateY(0);
+}
+
+.submit-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.message {
+  text-align: center;
+  margin: 12px 0;
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 13px;
+  min-height: 18px;
+  background-color: #f8f9fa;
+  border: 1px solid #e9ecef;
+}
+
+.signup-link {
+  text-align: center;
+  margin-top: 20px;
+  color: #666;
+  font-size: 13px;
+}
+
+.signup-link a {
+  color: #667eea;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.signup-link a:hover {
+  color: #764ba2;
+  text-decoration: underline;
+}
+
+/* Loading animation */
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.loading {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  border: 2px solid #ffffff;
+  border-radius: 50%;
+  border-top-color: transparent;
+  animation: spin 1s ease-in-out infinite;
+  margin-right: 6px;
+}
+
+/* Responsive design */
+@media (max-width: 480px) {
+  .container {
+    padding: 25px 20px;
+    margin: 15px;
+    max-width: 350px;
+  }
+  
+  body {
+    padding: 15px;
+  }
+  
+  .g-recaptcha {
+    transform: scale(0.8);
+  }
+  
+  h2 {
+    font-size: 20px;
+    margin-bottom: 15px;
+  }
+  
+  .logo {
+    width: 60px;
+    height: 60px;
+  }
+}
+
+/* Success and error states */
+.message.success {
+  background-color: #f0f9f0;
+  border-color: #d1fae5;
+  color: #065f46;
+}
+
+.message.error {
+  background-color: #fef2f2;
+  border-color: #fecaca;
+  color: #dc2626;
+}
+
+/* Make sure the form doesn't get too tall on large screens */
+@media (min-height: 800px) {
+  .container {
+    margin-top: -50px; /* Pull it up a bit on very tall screens */
+  }
+}
+
+/* Interactive effects */
+input:focus {
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}

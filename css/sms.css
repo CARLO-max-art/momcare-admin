@@ -1,0 +1,336 @@
+/* ===== SMS PAGE LAYOUT WITH INDEX.CSS COLOR PALETTE ===== */
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg, #f0f8ff, #fefefe);
+  display: flex;
+}
+
+/* ===== SIDEBAR ===== */
+/* --- Sidebar (Full Matched Styling) --- */
+.sidebar {
+  width: 220px;
+  background: linear-gradient(to bottom, #0070C1, #00bcd4);
+  color: white;
+  padding: 30px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  position: fixed;
+  height: 100%;
+  top: 0;
+  left: 0;
+  overflow-y: auto;
+}
+
+.logo {
+  width: 150px;
+  height: auto;
+  margin-bottom: -5px;
+}
+
+.sidebar ul {
+  list-style: none;
+  width: 100%;
+  padding-top: 10px;
+}
+
+.sidebar ul li {
+  margin-bottom: 10px;
+}
+
+.sidebar ul li a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  padding: 12px 16px;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+/* Active link indicator & style */
+.sidebar ul li a.active {
+  background-color: white;
+  color: #1e1f57;
+  font-weight: 600;
+}
+
+.sidebar ul li a.active::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 10%;
+  bottom: 10%;
+  width: 5px;
+  background-color: #1e1f57;
+  border-radius: 4px;
+}
+
+/* Hover effect */
+.sidebar ul li a:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Icon alignment */
+.sidebar ul li a .icon {
+  margin-right: 10px;
+  font-size: 1.2rem;
+}
+
+/* ===== MAIN CONTENT ===== */
+.main-content {
+  margin-left: 220px;
+  padding: 20px;
+  width: calc(100% - 220px);
+}
+
+header h2 {
+  margin: 0 0 20px;
+  color: #1e1f57;
+}
+
+/* ===== MODERN DROPDOWN FILTER STYLES ===== */
+.filter-section {
+  margin-bottom: 25px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: white;
+  padding: 15px 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  border: 1px solid #e8e8e8;
+}
+
+.filter-section label {
+  font-weight: 600;
+  color: #1e1f57;
+  font-size: 14px;
+  margin: 0;
+}
+
+/* Icon styling for filter label */
+.filter-section label i {
+  margin-right: 8px;
+  color: #1e1f57;
+  font-size: 14px;
+}
+
+#purokFilter {
+  padding: 12px 16px;
+  border: 2px solid #e8e8e8;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #f8f9ff, #ffffff);
+  color: #333;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%231e1f57' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 16px center;
+  background-size: 16px;
+  padding-right: 45px;
+  min-width: 160px;
+  position: relative;
+}
+
+#purokFilter:hover {
+  border-color: #1e1f57;
+  background: linear-gradient(135deg, #f0f4ff, #ffffff);
+  box-shadow: 0 4px 12px rgba(30, 31, 87, 0.15);
+  transform: translateY(-1px);
+}
+
+#purokFilter:focus {
+  outline: none;
+  border-color: #1e1f57;
+  box-shadow: 0 0 0 3px rgba(30, 31, 87, 0.2);
+  background: white;
+}
+
+/* Dropdown options styling */
+#purokFilter option {
+  padding: 12px 16px;
+  background: white;
+  color: #333;
+  font-size: 14px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+#purokFilter option:checked {
+  background: linear-gradient(135deg, #1e1f57, #32337a);
+  color: white;
+}
+
+#purokFilter option:hover {
+  background: #f0f8ff;
+  color: #1e1f57;
+}
+
+/* Remove default arrow for modern browsers */
+#purokFilter::-ms-expand {
+  display: none;
+}
+
+/* For Firefox */
+@-moz-document url-prefix() {
+  #purokFilter {
+    text-indent: 0.01px;
+    text-overflow: '';
+    padding-right: 45px;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%231e1f57' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+  }
+}
+
+/* ===== TABLE ===== */
+.appointments-table table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.appointments-table th {
+  background: #1e1f57;
+  color: white;
+  padding: 12px;
+}
+
+.appointments-table td {
+  padding: 10px;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+/* ===== SMS ICON BUTTON STYLES ===== */
+.sms-icon-btn {
+  background-color: #1e1f57; /* Dark blue background */
+  color: white;
+  border: none;
+  border-radius: 8px;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 1.1rem;
+  box-shadow: 0 2px 4px rgba(30, 31, 87, 0.3);
+}
+
+.sms-icon-btn:hover {
+  background-color: #32337a; /* Lighter blue on hover */
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(30, 31, 87, 0.4);
+}
+
+.sms-icon-btn:active {
+  transform: translateY(0);
+}
+
+.sms-icon-btn i {
+  color: white !important;
+  font-size: 1.2rem;
+}
+
+/* Ensure proper alignment in table */
+.appointments-table td:last-child {
+  text-align: center;
+}
+
+/* Hide the old action button style */
+.action-btn {
+  display: none;
+}
+
+/* ===== MODALS ===== */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background: white;
+  width: 420px;
+  padding: 20px;
+  border-radius: 10px;
+  position: relative;
+  animation: fadeIn 0.2s ease-in-out;
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 14px;
+  cursor: pointer;
+  font-size: 22px;
+}
+
+/* ===== BUTTONS ===== */
+.btn-confirm, .sms-btn {
+  width: 100%;
+  background: #1e1f57;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 6px;
+  margin-top: 10px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.btn-confirm:hover, .sms-btn:hover {
+  background: #32337a;
+}
+
+/* ===== TEXTAREA ===== */
+textarea {
+  width: 100%;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #aaa;
+  font-size: 15px;
+  resize: none;
+}
+
+/* ===== ANIMATION ===== */
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .filter-section {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+  
+  .filter-section label {
+    text-align: center;
+  }
+  
+  #purokFilter {
+    width: 100%;
+    min-width: auto;
+  }
+}
